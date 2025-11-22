@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virfvgctual Study Room</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Virtual Study Room</h1>
+    <span class="tagline">Focus • Collaborate • Grow</span>
+  </header>
+
+  <main class="container">
+    <!-- Left column: Room & Users -->
+    <section class="room">
+      <h2>Room: Morning Sprint</h2>
+      <p class="room-subtitle">Remote learners focusing together</p>
+
+      <div class="users-card">
+        <h3>Study Buddies (4)</h3>
+        <ul class="user-list">
+          <li><span class="status-dot online"></span> Nishant</li>
+          <li><span class="status-dot online"></span> Pratreek</li>
+          <li><span class="status-dot online"></span> Divyanshu</li>
+          <li><span class="status-dot away"></span> Ayushi</li>
+        </ul>
+      </div>
+
+      <div class="stats-card">
+        <h3>Session Stats</h3>
+        <p>Total Focus Time: <span id="totalFocus">0</span> min</p>
+        <p>Completed Sessions: <span id="sessionsDone">0</span></p>
+      </div>
+    </section>
+
+    <!-- Center column: Focus Timer -->
+    <section class="timer">
+      <h2>Focus Timer</h2>
+
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="focus">Focus</button>
+        <button class="mode-btn" data-mode="short-break">Short Break</button>
+        <button class="mode-btn" data-mode="long-break">Long Break</button>
+      </div>
+
+      <div class="timer-display" id="timerDisplay">25:00</div>
+
+      <div class="timer-controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <div class="timer-settings">
+        <label>
+          Focus (min):
+          <input type="number" id="focusInput" value="25" min="1" max="90" />
+        </label>
+        <label>
+          Short Break (min):
+          <input type="number" id="shortBreakInput" value="5" min="1" max="30" />
+        </label>
+        <label>
+          Long Break (min):
+          <input type="number" id="longBreakInput" value="15" min="5" max="60" />
+        </label>
+      </div>
+
+      <p class="hint">
+        Pro tip: Work in focused sprints, then take mindful breaks to avoid burnout.
+      </p>
+    </section>
+
+    <!-- Right column: Shared Resources -->
+    <section class="resources">
+      <h2>Shared Study Resources</h2>
+      <form id="resourceForm" class="resource-form">
+        <input
+          type="text"
+          id="resourceTitle"
+          placeholder="Resource title (e.g., DSA Notes)"
+          required
+        />
+        <input
+          type="url"
+          id="resourceLink"
+          placeholder="Resource link (https://...)"
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul id="resourceList" class="resource-list">
+        <!-- Resources injected by JS -->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Built for Hackathons • Virtual Study Room with Focus Timers</span>
+  </footer>
+
+  <audio id="beepSound">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
